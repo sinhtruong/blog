@@ -1,0 +1,9 @@
+%div
+  %b= I18n.t('posts.show.commenter')
+  %span= comment.commenter
+%div
+  %b= I18n.t('posts.show.content')
+  %span= comment.body
+%div
+  = link_to "Delete Comment", [comment.post, comment], method: :delete, data: {confirm: 'Are you sure?'}
+%hr

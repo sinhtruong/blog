@@ -1,0 +1,26 @@
+.row
+  .col-mid-6.col-mid-offset-3
+    %h1= I18n.t('posts.index.page_title')
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th= I18n.t('posts.index.text')
+          %th= I18n.t('posts.index.title')
+          %th= I18n.t('posts.index.comments')
+          %th= I18n.t('common.action')
+      %tbody
+        - @posts.each_with_index do |post,index|
+          %tr
+            %td= index
+            %td= post.title
+            %td= post.text
+            %td= post.comments.count
+            %td
+              %span= link_to I18n.t('common.show'), post
+              %span= link_to I18n.t('common.edit'), edit_post_path(post)
+              %span= link_to I18n.t('common.delete'), post_path(post), method: :delete, data: {confirm: "Are you sure?"}
+    %div
+      .pull-left
+        = link_to I18n.t('posts.index.new_post'), new_post_path
+      .pull-right= paginate @posts

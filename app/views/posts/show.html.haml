@@ -1,0 +1,22 @@
+.row
+  .col-md-12
+    %h1= I18n.t('posts.show.page_title')
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th= I18n.t('posts.show.title')
+          %th= I18n.t('posts.show.text')
+          %th= I18n.t('common.action')
+      %tbody
+        %tr
+          %td  1
+          %td= @post.title
+          %td= @post.text
+          %td= link_to I18n.t('common.edit'), edit_post_path(@post)
+  .col-md-3
+    %h3= I18n.t('posts.show.comments')
+    =render @comments
+    = paginate @comments
+    %h3= I18n.t('posts.show.add_comment')
+    =render 'comments/form'

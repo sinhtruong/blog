@@ -1,0 +1,12 @@
+.row
+  .col-md-4.col-md-offset-4
+    %h1= I18n.t('posts.edit.page_title')
+    = form_for @post,url: post_path(@post) do |f|
+      .form-group
+        %label= I18n.t('posts.edit.title')
+        = f.text_field :title, placeholder: I18n.t('posts.edit.title'), class: "form-control"
+      .form-group
+        %label= I18n.t('posts.edit.text')
+        = f.text_area :text, placeholder: I18n.t('posts.edit.text'), class: "form-control"
+      =link_to I18n.t('common.back'), posts_path, class: "button button-default pull-left"
+      = f.submit I18n.t('common.save') ,class: "btn btn-primary pull-right"

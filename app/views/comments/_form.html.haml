@@ -1,0 +1,9 @@
+= form_for([@post, @post.comments.build]) do |f|
+  .form-group
+    %label= I18n.t('posts.show.commenter')
+    =f.text_field :commenter, placeholder: I18n.t('posts.show.commenter'), class: "form-control"
+  .form-group
+    %label= I18n.t('posts.show.content')
+    =f.text_area :body, placeholder: I18n.t('posts.show.content'), class: "form-control"
+  = link_to I18n.t('common.back'), posts_path, class: "button button-default"
+  = f.submit I18n.t('common.save') ,class: "btn btn-primary pull-right"
